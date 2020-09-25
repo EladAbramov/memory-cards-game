@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context=".Start">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:background="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200px">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="750px"
+            android:layout_height="31dp"
+            android:layout_weight="1"
+            android:text="Play Now"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="500px"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:background="@drawable/round_shape_text"
+            android:inputType="textPersonName"
+            android:hint="Enter Nickname"
+            android:layout_marginTop="100px"/>
+
+
+        <Button
+            android:id="@+id/categories"
+            android:layout_width="500px"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@drawable/round_shape"
+            android:layout_gravity="center"
+            android:text="Join Game"
+            android:layout_marginTop="50px"
+            android:layout_marginBottom="50px"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Popup"
+    android:background="@android:color/holo_orange_dark">
+
+    <LinearLayout
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#40e0d0"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="350px"
+            android:layout_height="120px"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/holo_green_light"
+            android:text="Easy" />
+
+        <Button
+            android:id="@+id/medium"
+            android:layout_width="350px"
+            android:layout_height="120px"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="100px"
+            android:background="#ffff00"
+            android:text="Medium" />
+
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="350px"
+            android:layout_height="120px"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="#ff0000"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="100px"
+            android:text="Hard" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

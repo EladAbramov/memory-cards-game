@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nickname"></string>
+    <string name="category"></string>
+    <integer name="difficulty">0</integer>
+</resources>
