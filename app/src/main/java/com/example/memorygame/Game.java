@@ -1,42 +1,65 @@
 package com.example.memorygame;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.widget.GridLayout;
-
+import android.view.View;
+import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Game extends AppCompatActivity {
 
+    public static boolean isPlay = true;
     private String selectedCategory;
     private int selectedDifficulty;
-
-    List<Card> lstCards ;
+    List<Card> lstCards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
         selectedCategory = PreferenceUtils.getCategory();
         selectedDifficulty = PreferenceUtils.getDifficulty();
-
         setCards();
-
         RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_id);
-        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(this,lstCards, selectedDifficulty);
+        if(isPlay){
+            MusicService.playAudio(this, R.raw.bgmusic);
+        }
+        ImageButton settingsButton = findViewById(R.id.settings);
+        settingsButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MusicService.stopAudio();
+                goToSettings();
+            }
+        });
+        ImageButton restartButton = findViewById(R.id.restart);
+        restartButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MusicService.stopAudio();
+                restart();
+            }
+        });
 
+        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(this,lstCards, selectedDifficulty);
         myrv.setLayoutManager(new GridLayoutManager(this, getColNum()));
         myrv.setAdapter(myAdapter);
+
+
     }
 
+    public void restart() {
+        Intent i = new Intent(this, Game.class);
+        startActivity(i);
+    }
+    public void goToSettings() {
+        Intent i = new Intent(this, Settings.class);
+        startActivity(i);
+    }
     private int getColNum() {
         switch(selectedDifficulty) {
             case 1:
@@ -88,6 +111,7 @@ public class Game extends AppCompatActivity {
 
         lstCards.addAll(lstCards);
         Collections.shuffle(lstCards);
+
     }
 
     private void setVehiclesCards() {

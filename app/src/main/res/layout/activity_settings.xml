@@ -45,9 +45,25 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="250dp"
+                android:layout_marginStart="250dp"
                 android:background="@drawable/clear">
             </ImageButton>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="stop/play music" />
+            <ImageButton
+                android:id="@+id/playMusic"
+                android:layout_width="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="100dp"
+                android:background="@drawable/play_button"
+                android:contentDescription="TODO" />
         </RelativeLayout>
 
     </LinearLayout>

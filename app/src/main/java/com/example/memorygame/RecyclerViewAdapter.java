@@ -5,14 +5,17 @@ import android.content.Intent;
 //import android.support.v7.widget.CardView;
 //import android.support.v7.widget.RecyclerView;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.text.PrecomputedText;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,20 +35,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Card> mData ;
     private int selectedDifficulty;
     private boolean isSleeping;
-
+    public int totalCardsCounter;
     private int shownCardsCounter = 0;
-//    private List<MyViewHolder> shownCards;
     private Map<MyViewHolder, Card> shownCards = new HashMap<>();
 
     public RecyclerViewAdapter(Context mContext, List<Card> mData, int selectedDifficulty) {
         this.mContext = mContext;
         this.mData = mData;
         this.selectedDifficulty = selectedDifficulty;
+        totalCardsCounter = mData.size();
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view ;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.cardview_item_card,parent,false);
@@ -137,6 +139,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
                 deleteCards();
                 isSame = true;
+                System.out.println(totalCardsCounter);
+                totalCardsCounter = totalCardsCounter - 2;
+                if(totalCardsCounter==0){
+                    final Toast toast = new Toast(mContext.getApplicationContext());
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setDuration(toast.LENGTH_LONG);
+                    toast.makeText(mContext.getApplicationContext(),"Game is Finished!!" ,Toast.LENGTH_SHORT).show();
+                }
+
             }
         }
 
