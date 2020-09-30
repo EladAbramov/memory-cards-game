@@ -39,7 +39,7 @@
                 android:textSize="60px"
                 android:gravity="center"
                 android:text="Book Title"
-                android:textColor="#fff" />
+                android:textColor="#000" />
         </RelativeLayout>
 
 

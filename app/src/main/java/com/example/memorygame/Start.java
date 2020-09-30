@@ -2,21 +2,14 @@ package com.example.memorygame;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.provider.Settings;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Start extends AppCompatActivity {
 
@@ -43,8 +36,8 @@ public class Start extends AppCompatActivity {
         String nickname = nicknameInput.getText().toString();
         final Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(toast.LENGTH_LONG);
-        toast.makeText(getApplicationContext(),"Hello " + nickname ,Toast.LENGTH_SHORT).show();
+        toast.setDuration(Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(),"Hello " + nickname ,Toast.LENGTH_SHORT).show();
 
         if (nickname.length() > 0) {
             PreferenceUtils.setNickname(nickname);

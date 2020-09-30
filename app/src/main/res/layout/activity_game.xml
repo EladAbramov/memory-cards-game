@@ -24,6 +24,13 @@
             android:layout_height="35dp"
             android:background="@drawable/restart">
         </ImageButton>
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/back">
+        </ImageButton>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

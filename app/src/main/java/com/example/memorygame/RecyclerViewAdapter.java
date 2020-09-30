@@ -25,10 +25,6 @@ import java.util.concurrent.TimeUnit;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * Created by Aws on 28/01/2018.
- */
-
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext ;
@@ -84,7 +80,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
 
                 if (shownCardsCounter == 2) {
-//                    holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
                     MyAsyncTask task = new MyAsyncTask(holder, mData.get(position));
                     task.execute();
                 }
@@ -130,7 +125,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             entry.getKey().img_book_thumbnail.setImageResource(entry.getValue().getDefaultThumbnail());
             if (firstTitle == null) {
                 firstTitle = entry.getValue().getTitle();
-            } else if (firstTitle == entry.getValue().getTitle()) {
+            } else if (firstTitle.equals(entry.getValue().getTitle())) {
                 // found a pair
                 try {
                     TimeUnit.SECONDS.sleep(1);
@@ -139,20 +134,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
                 deleteCards();
                 isSame = true;
-                System.out.println(totalCardsCounter);
                 totalCardsCounter = totalCardsCounter - 2;
                 if(totalCardsCounter==0){
                     final Toast toast = new Toast(mContext.getApplicationContext());
                     toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.setDuration(toast.LENGTH_LONG);
-                    toast.makeText(mContext.getApplicationContext(),"Game is Finished!!" ,Toast.LENGTH_SHORT).show();
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    Toast.makeText(mContext.getApplicationContext(),"Game is Finished!!" ,Toast.LENGTH_SHORT).show();
                 }
 
             }
         }
 
         if (!isSame) {
-            resetShownCards();
+            for (Map.Entry<MyViewHolder, Card> entry : shownCards.entrySet()) {
+                entry.getKey().tv_book_title.setText("");
+                resetShownCards();
+            }
         }
     }
 
